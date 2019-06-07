@@ -101,7 +101,7 @@ class Resume extends StatelessWidget {
               title: "Main projects",
               children: [
                 Project(
-                  name: "Under NDA agreement ",
+                  name: "Domestic services app",
                   from: "September 2017",
                   to: "April 2019",
                   description:
@@ -120,11 +120,11 @@ class Resume extends StatelessWidget {
                   links: [],
                 ),
                 Project(
-                  name: "Under NDA agreement ",
+                  name: "Silent auction app",
                   from: "May 2017",
                   to: "September 2018",
                   description:
-                      "Silent Auction service. This client allows bidders who are invited to silent auctions to bid on items from their mobile device, manage bids and proxy bids, checkout, issue payment, and get a receipt.",
+                      "Silent Auction service. This client allows bidders who are invited to silent auctions to bid on items from their mobile device and manage bids.",
                   role: "Android Developer",
                   technologies: [
                     "Java",
