@@ -16139,24 +16139,24 @@ F.zS.prototype={
 P:function(a){var u=null
 return new S.lD(C.o9,"Iryna Smalko",X.qJ(u,"Roboto",u,C.bO,u),u)}}
 T.C7.prototype={
-P:function(a){var u,t,s,r,q,p,o,n,m=null,l="May 2017",k="April 2019",j="Under NDA agreement ",i="Android Developer",h="Android framework",g=L.jo(C.jt),f=[N.al]
-g=T.mg(H.h([L.cC("Dedicated Android developer with two years of experience in mobile app development. Strong creative and analytical skills. Team player with an eye for detail.",m)],f),g,"Profile")
+P:function(a){var u,t,s,r,q,p,o,n,m=null,l="May 2017",k="April 2019",j="Android Developer",i="Android framework",h=L.jo(C.jt),g=[N.al]
+h=T.mg(H.h([L.cC("Dedicated Android developer with two years of experience in mobile app development. Strong creative and analytical skills. Team player with an eye for detail.",m)],g),h,"Profile")
 u=L.jo(C.jw)
 t=[P.l]
-u=T.mg(H.h([T.fN(H.h([T.Ed(l,L.cC("Android Developer at Master of Code Global, Cherkasy, Ukraine",m),k),C.os,new T.wx(H.h(["Implementation of new features","Prototyping, design and technical implementation discussions","Code review","Improving the design of existing code","Supporting the QA team during the testing phase"],t),m)],f),C.ac,C.V)],f),u,"Employment History")
+u=T.mg(H.h([T.fN(H.h([T.Ed(l,L.cC("Android Developer at Master of Code Global, Cherkasy, Ukraine",m),k),C.os,new T.wx(H.h(["Implementation of new features","Prototyping, design and technical implementation discussions","Code review","Improving the design of existing code","Supporting the QA team during the testing phase"],t),m)],g),C.ac,C.V)],g),u,"Employment History")
 s=L.jo(C.js)
-s=T.mg(H.h([new T.Dd(H.h(["Kotlin, Java, Android SDK","OOP, Databinding, Git","Architecture components, OkHttp","Retroit, Realm, RxJava2, Branch","Firebase, Google pay, Crashlytics"],t),m)],f),s,"Professional Skills")
+s=T.mg(H.h([new T.Dd(H.h(["Kotlin, Java, Android SDK","OOP, Databinding, Git","Architecture components, OkHttp","Retroit, Realm, RxJava2, Branch","Firebase, Google pay, Crashlytics"],t),m)],g),s,"Professional Skills")
 r=L.jo(C.ec)
-r=T.mg(H.h([T.Ed("September 2012",L.cC("Bachelor's in Accounting and audit, The Kremenchuk Mykhailo Ostrohradskyi National University",m),"June 2016")],f),r,"Education")
+r=T.mg(H.h([T.Ed("September 2012",L.cC("Bachelor's in Accounting and audit, The Kremenchuk Mykhailo Ostrohradskyi National University",m),"June 2016")],g),r,"Education")
 q=L.jo(C.ec)
-q=T.mg(H.h([T.Ed("October 2016",T.RG(H.h([L.cC("Android development, GeekHub (",m),new T.p_("http://geekhub.ck.ua",m),L.cC(")",m)],f)),"April 2017")],f),q,"Courses")
+q=T.mg(H.h([T.Ed("October 2016",T.RG(H.h([L.cC("Android development, GeekHub (",m),new T.p_("http://geekhub.ck.ua",m),L.cC(")",m)],g)),"April 2017")],g),q,"Courses")
 p=L.jo(C.ju)
-o=H.h(["Kotlin",h,"Architecture components","DataBinding","RxJava2","ObjectBox","Retrofit","Firebase"],t)
+o=H.h(["Kotlin",i,"Architecture components","DataBinding","RxJava2","ObjectBox","Retrofit","Firebase"],t)
 n=[T.p_]
-o=T.Mu("App for matching clients with proven technicians to solve common household problems oriented for Arabian countries","September 2017",H.h([],n),j,i,o,k)
-t=H.h(["Java",h,"Realm","Socket","Glide","Branch","OkHttp","Google Maps","Firebase"],t)
-f=T.fN(H.h([new T.xY(m),g,u,s,r,q,T.mg(H.h([o,T.Mu("Silent Auction service. This client allows bidders who are invited to silent auctions to bid on items from their mobile device, manage bids and proxy bids, checkout, issue payment, and get a receipt.",l,H.h([],n),j,i,t,"September 2018")],f),p,"Main projects")],f),C.bz,C.V)
-return new M.jX(new E.D9(C.jf,!0,f,m),C.q,m)}}
+o=T.Mu("App for matching clients with proven technicians to solve common household problems oriented for Arabian countries","September 2017",H.h([],n),"Domestic services app",j,o,k)
+t=H.h(["Java",i,"Realm","Socket","Glide","Branch","OkHttp","Google Maps","Firebase"],t)
+g=T.fN(H.h([new T.xY(m),h,u,s,r,q,T.mg(H.h([o,T.Mu("Silent Auction service. This client allows bidders who are invited to silent auctions to bid on items from their mobile device and manage bids.",l,H.h([],n),"Silent auction app",j,t,"September 2018")],g),p,"Main projects")],g),C.bz,C.V)
+return new M.jX(new E.D9(C.jf,!0,g,m),C.q,m)}}
 T.xY.prototype={
 P:function(a){var u=null,t=K.bf(a).y1,s=new Q.aQ(8,8),r=[N.al]
 return T.Cg(H.h([new T.cZ(128,128,new V.vr(new X.bJ(C.v,new K.aS(s,s,s,s)),new U.ln(new L.o0("photo.jpeg",u,u),u),u),u),new T.cZ(24,u,u,u),T.fN(H.h([L.cC("Iryna Smalko",t.c.jX(C.x)),L.cC("Mobile Developer",t.e),new T.og("+38(068)033-63-79",C.jr,u),new T.og("smalko.irina.s@gmail.com",C.jq,u)],r),C.ac,C.V)],r),C.V,C.aN)}}
