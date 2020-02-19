@@ -1,5 +1,5 @@
-import 'package:Flutter_resume/resume.dart';
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
+import 'package:resume/resume.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
       title: 'Iryna Smalko',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        fontFamily: "Roboto",
+        fontFamily: "RobotoMoto",
       ),
       home: const Resume(),
     );

@@ -1,148 +1,201 @@
 import 'dart:html';
 
-import 'package:Flutter_resume/util.dart';
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
+import 'package:resume/util.dart';
+
+import 'custom_icons.dart';
 
 class Resume extends StatelessWidget {
   const Resume({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    MediaQueryData queryData = MediaQuery.of(context);
+    double screenHeight = queryData.size.height;
+    double screenWidth = queryData.size.width;
+
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black54,
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          children: <Widget>[
-            Header(),
-            Section(
-              icon: Icon(Icons.account_box),
-              title: "Profile",
-              children: [
-                Text(
-                    "Dedicated Android developer with two years of experience in mobile app development. Strong creative and analytical skills. Team player with an eye for detail."),
-              ],
+        padding: const EdgeInsets.all(18.0),
+        child: Center(
+          child: Card(
+            elevation: 10,
+            margin: const EdgeInsets.only(top: 24.0),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(2.0),
             ),
-            Section(
-              icon: Icon(Icons.work),
-              title: "Employment History",
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    TimePeriod(
-                      title: Text(
-                        "Android Developer at Master of Code Global, Cherkasy, Ukraine",
-                      ),
-                      from: "May 2017",
-                      to: "April 2019",
-                    ),
-                    const SizedBox(height: 8.0),
-                    DutiesContainer(
-                      duties: [
-                        "Implementation of new features",
-                        "Prototyping, design and technical implementation discussions",
-                        "Code review",
-                        "Improving the design of existing code",
-                        "Supporting the QA team during the testing phase",
+            child: Container(
+              width: screenWidth / 2,
+              child: Column(
+                children: <Widget>[
+                  Header(),
+                  Container(
+                    color: Colors.black12,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        SizedBox(),
+                        Contact(
+                            title: "smalko.irina.s@gmail.com",
+                            icon: Icons.email),
+                        Contact(title: "Kyiv", icon: Icons.pin_drop),
+                        Contact(
+                            title: "+38 068 033 63 79",
+                            icon: Icons.phone_android),
+                        Contact(
+                            title: "linkedin.com/in/iryna-smalko",
+                            icon: CustomIcons.linkdin),
+                        SizedBox(),
                       ],
                     ),
-                  ],
-                ),
-              ],
-            ),
-            Section(
-              icon: Icon(Icons.person),
-              title: "Professional Skills",
-              children: [
-                SkillsContainer(
-                  skills: [
-                    "Kotlin, Java, Android SDK",
-                    "OOP, Databinding, Git",
-                    "Architecture components, OkHttp",
-                    "Retroit, Realm, RxJava2, Branch",
-                    "Firebase, Google pay, Crashlytics",
-                  ],
-                ),
-              ],
-            ),
-            Section(
-              icon: Icon(Icons.school),
-              title: "Education",
-              children: [
-                TimePeriod(
-                  title: Text(
-                    "Bachelor's in Accounting and audit, The Kremenchuk Mykhailo Ostrohradskyi National University",
                   ),
-                  from: "September 2012",
-                  to: "June 2016",
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          _firstColumn(screenWidth / 2),
+                          _secondColumn(screenWidth / 2)
+                        ]),
+                  ),
+                  SizedBox(height: 42.0),
+                ],
+              ),
             ),
-            Section(
-              icon: Icon(Icons.school),
-              title: "Courses",
-              children: [
-                TimePeriod(
-                  title: Wrap(
-                    children: [
-                      Text("Android development, GeekHub ("),
-                      Link("http://geekhub.ck.ua"),
-                      Text(")"),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _firstColumn(double width) {
+    return Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Section(
+            title: "WORK EXPERIENCE",
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  TimePeriod(
+                    title: "Android Developer",
+                    subtitle: "Master of Code Global, Cherkasy, Ukraine",
+                    from: "May 2017",
+                    to: "April 2019",
+                  ),
+                  const SizedBox(height: 8.0),
+                  DutiesContainer(
+                    duties: [
+                      "Implementation of new features",
+                      "Prototyping, design and technical implementation discussions",
+                      "Code review",
+                      "Improving the design of existing code",
+                      "Supporting the QA team during the testing phase",
                     ],
                   ),
-                  from: "October 2016",
-                  to: "April 2017",
-                ),
-              ],
-            ),
-            Section(
-              icon: Icon(Icons.list),
-              title: "Main projects",
-              children: [
-                Project(
-                  name: "Domestic services app",
-                  from: "September 2017",
-                  to: "April 2019",
-                  description:
-                      "App for matching clients with proven technicians to solve common household problems oriented for Arabian countries",
-                  role: "Android Developer",
-                  technologies: [
-                    "Kotlin",
-                    "Android framework",
-                    "Architecture components",
-                    "DataBinding",
-                    "RxJava2",
-                    "ObjectBox",
-                    "Retrofit",
-                    "Firebase",
-                  ],
-                  links: [],
-                ),
-                Project(
-                  name: "Silent auction app",
-                  from: "May 2017",
-                  to: "September 2018",
-                  description:
-                      "Silent Auction service. This client allows bidders who are invited to silent auctions to bid on items from their mobile device and manage bids.",
-                  role: "Android Developer",
-                  technologies: [
-                    "Java",
-                    "Android framework",
-                    "Realm",
-                    "Socket",
-                    "Glide",
-                    "Branch",
-                    "OkHttp",
-                    "Google Maps",
-                    "Firebase",
-                  ],
-                  links: [],
-                ),
-              ],
-            ),
-          ],
-        ),
+                ],
+              ),
+            ],
+          ),
+          Section(
+            title: "Education",
+            children: [
+              TimePeriod(
+                title: "Bachelor's in Accounting and audit",
+                subtitle:
+                    "The Kremenchuk Mykhailo Ostrohradskyi National University",
+                from: "September 2012",
+                to: "June 2016",
+              ),
+            ],
+          ),
+          Section(
+            title: "Courses",
+            children: [
+              TimePeriod(
+                title: "Android development",
+                subtitle: "GeekHub",
+                from: "October 2016",
+                to: "April 2017",
+              ),
+              IconButton(onPressed: () {}, icon: Icon(Icons.link))
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _secondColumn(double width) {
+    return Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Section(
+            title: "Professional Skills",
+            children: [
+              SkillsContainer(
+                skills: [
+                  "Kotlin, Java, Android SDK",
+                  "OOP, Databinding, Git",
+                  "Architecture components, OkHttp",
+                  "Retroit, Realm, RxJava2, Branch",
+                  "Firebase, Google pay, Crashlytics",
+                ],
+              ),
+            ],
+          ),
+          Section(
+            title: "Main projects",
+            children: [
+              Project(
+                name: "Domestic services app",
+                from: "September 2017",
+                to: "April 2019",
+                description:
+                "App for matching clients with proven technicians to solve common household problems oriented for Arabian countries",
+                role: "Android Developer",
+                technologies: [
+                  "Kotlin",
+                  "Android framework",
+                  "Architecture components",
+                  "DataBinding",
+                  "RxJava2",
+                  "ObjectBox",
+                  "Retrofit",
+                  "Firebase",
+                ],
+                links: [],
+              ),
+              Project(
+                name: "Silent auction app",
+                from: "May 2017",
+                to: "September 2018",
+                description:
+                "Silent Auction service. This client allows bidders who are invited to silent auctions to bid on items from their mobile device and manage bids.",
+                role: "Android Developer",
+                technologies: [
+                  "Java",
+                  "Android framework",
+                  "Realm",
+                  "Socket",
+                  "Glide",
+                  "Branch",
+                  "OkHttp",
+                  "Google Maps",
+                  "Firebase",
+                ],
+                links: [],
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -156,88 +209,102 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    return Row(
-      children: <Widget>[
-        SizedBox(
-          width: 128.0,
-          height: 128.0,
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
+    return Padding(
+      padding: const EdgeInsets.only(
+          left: 32.0, right: 32.0, top: 32.0, bottom: 24.0),
+      child: Row(
+        children: <Widget>[
+          ClipOval(
+            child: SizedBox(
+              width: 120.0,
+              height: 120.0,
+              child: Image.asset("assets/image.jpg"),
             ),
-            child: Image.asset("photo.jpeg"),
           ),
-        ),
-        SizedBox(width: 24.0),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text("Iryna Smalko", style: textTheme.display2.copyWith(color: Colors.black)),
-            Text("Mobile Developer", style: textTheme.headline),
-            Contact(title: "+38(068)033-63-79", icon: Icons.phone),
-            Contact(title: "smalko.irina.s@gmail.com", icon: Icons.email),
-          ],
-        )
-      ],
+          SizedBox(width: 24.0),
+          Expanded(
+            child: LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints constraints) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text("Iryna Smalko",
+                      style: textTheme.headline4.copyWith(color: Colors.black)),
+                  SizedBox(height: 4.0),
+                  Text(
+                    "Flutter developer",
+                    style: TextStyle(
+                        color: const Color(0xFF004d40),
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.w100),
+                  ),
+                  SizedBox(height: 4.0),
+                  SizedBox(
+                    width: constraints.maxWidth,
+                    child: Text(
+                      "Dedicated Android developer with two years of experience in mobile app development. Strong creative and analytical skills. Team player with an eye for detail.",
+                    ),
+                  ),
+                ],
+              );
+            }),
+          )
+        ],
+      ),
     );
   }
 }
 
 class Section extends StatelessWidget {
-  static const _iconSize = 48.0;
+  final double width;
 
-  final Widget icon;
   final String title;
+  final String link;
   final List<Widget> children;
 
   const Section({
     Key key,
-    @required this.icon,
+    this.link,
     @required this.title,
     @required this.children,
+    @required this.width,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        SizedBox(height: 24.0),
-        Row(
-          children: <Widget>[
-            Container(
-              width: _iconSize,
-              padding: EdgeInsets.only(left: 8.0),
-              alignment: Alignment.centerLeft,
-              child: icon,
+    return Container(
+      width: width,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          SizedBox(height: 24.0),
+          Text(
+            title,
+            style: TextStyle(
+              color: const Color(0xFF00796b),
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
             ),
-            Text(title, style: Theme.of(context).textTheme.headline),
-          ],
-        ),
-        SizedBox(height: 8.0),
-        Row(
-          children: <Widget>[
-            SizedBox(width: _iconSize),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: join(children, const Divider()),
-              ),
-            ),
-          ],
-        ),
-      ],
+          ),
+          SizedBox(height: 8.0),
+          ...children,
+        ],
+      ),
     );
   }
 }
 
 class TimePeriod extends StatelessWidget {
-  final Widget title;
+  final String title;
+  final String subtitle;
   final String from;
   final String to;
 
   const TimePeriod({
     Key key,
     @required this.title,
+    @required this.subtitle,
     @required this.from,
     @required this.to,
   }) : super(key: key);
@@ -248,10 +315,21 @@ class TimePeriod extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        DefaultTextStyle.merge(
-          style: textTheme.title,
-          child: title,
+        Text(
+          title,
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
         ),
+        SizedBox(height: 4.0),
+        Text(
+          subtitle,
+          style: TextStyle(
+            fontSize: 18,
+          ),
+        ),
+        SizedBox(height: 4.0),
         Text("$from – $to", style: textTheme.caption),
       ],
     );
@@ -271,13 +349,24 @@ class Contact extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    return Row(children: <Widget>[
-      Padding(
-        padding: const EdgeInsets.all(4.0),
-        child: Icon(icon),
-      ),
-      Text(title),
-    ]);
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: Icon(
+            icon,
+            size: 16.0,
+            color: const Color(0xFF00796b),
+          ),
+        ),
+        SizedBox(width: 4.0),
+        Text(
+          title,
+          style: TextStyle(fontSize: 12.0),
+        ),
+      ]),
+    );
   }
 }
 
@@ -335,7 +424,8 @@ class Link extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeStyle = DefaultTextStyle.of(context)?.style ?? Theme.of(context).textTheme.body1;
+    final themeStyle = DefaultTextStyle.of(context)?.style ??
+        Theme.of(context).textTheme.body1;
     TextStyle style = themeStyle.copyWith(decoration: TextDecoration.underline);
     if (colorize) {
       style = style.copyWith(color: Colors.blue);
@@ -375,7 +465,10 @@ class Project extends StatelessWidget {
           children: <Widget>[
             Text(
               "${name}: ",
-              style: Theme.of(context).textTheme.body1.copyWith(fontWeight: FontWeight.bold),
+              style: Theme.of(context)
+                  .textTheme
+                  .body1
+                  .copyWith(fontWeight: FontWeight.bold),
             ),
             Wrap(
               children: <Widget>[
@@ -408,7 +501,8 @@ class Project extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         TimePeriod(
-          title: Text(name),
+          title: name,
+          subtitle: "",
           from: from,
           to: to,
         ),
