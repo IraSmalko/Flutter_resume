@@ -77,29 +77,46 @@ class Resume extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Section(
-            title: "WORK EXPERIENCE",
+            title: "Professional Skills",
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  TimePeriod(
-                    title: "Android Developer",
-                    subtitle: "Master of Code Global, Cherkasy, Ukraine",
-                    from: "May 2017",
-                    to: "April 2019",
-                  ),
-                  const SizedBox(height: 8.0),
-                  DutiesContainer(
-                    duties: [
-                      "Implementation of new features",
-                      "Prototyping, design and technical implementation discussions",
-                      "Code review",
-                      "Improving the design of existing code",
-                      "Supporting the QA team during the testing phase",
-                    ],
-                  ),
+              SkillsContainer(
+                skills: [
+                  "Kotlin",
+                  "Java",
+                  "Dart",
+                  "Android SDK",
+                  "OOP",
+                  "Databinding",
+                  "OkHttp",
+                  "Retroit",
+                  "Realm",
+                  "Architecture components",
+                  "RxJava2",
+                  "Branch",
+                  "Firebase",
+                  "Google pay",
+                  "Crashlytics",
+                  "Git",
+                  "Internationalization",
+                  "IOS app distribution",
+                  "Git flow",
+                  "Testflight",
+                  "Jira",
+                  "Figma",
+                  "Provider",
                 ],
               ),
+            ],
+          ),
+          const SizedBox(height: 24.0),
+          DutiesContainer(
+            duties: [
+              "Implementation of new features",
+              "Prototyping, design and technical implementation discussions",
+              "Code review",
+              "Improving the design of existing code",
+              "Supporting the QA team during the testing phase",
+              "Contribution of mobile apps",
             ],
           ),
           Section(
@@ -138,15 +155,24 @@ class Resume extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Section(
-            title: "Professional Skills",
+            title: "WORK EXPERIENCE",
             children: [
-              SkillsContainer(
-                skills: [
-                  "Kotlin, Java, Android SDK",
-                  "OOP, Databinding, Git",
-                  "Architecture components, OkHttp",
-                  "Retroit, Realm, RxJava2, Branch",
-                  "Firebase, Google pay, Crashlytics",
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  TimePeriod(
+                    title: "Flutter developer",
+                    subtitle: "YouDigital, Kyiv, Ukraine",
+                    from: "August 2019",
+                    to: "Present",
+                  ),
+                  const SizedBox(height: 24.0),
+                  TimePeriod(
+                    title: "Android Developer",
+                    subtitle: "Master of Code Global, Cherkasy, Ukraine",
+                    from: "May 2017",
+                    to: "April 2019",
+                  ),
                 ],
               ),
             ],
@@ -155,11 +181,26 @@ class Resume extends StatelessWidget {
             title: "Main projects",
             children: [
               Project(
+                name: "Apps for making deposits and loans",
+                from: "August 2019",
+                to: "Present",
+                description:
+                    "The mobile applications for comfortable and quick admittance to the client’s personal deposits and Loans cryptocurrency accounts",
+                role: "Flutter developer",
+                technologies: [
+                  "Dart",
+                  "Internationalization",
+                  "Provider",
+                ],
+                links: [],
+              ),
+              SizedBox(height: 24.0),
+              Project(
                 name: "Domestic services app",
                 from: "September 2017",
                 to: "April 2019",
                 description:
-                "App for matching clients with proven technicians to solve common household problems oriented for Arabian countries",
+                    "App for matching clients with proven technicians to solve common household problems oriented for Arabian countries",
                 role: "Android Developer",
                 technologies: [
                   "Kotlin",
@@ -173,12 +214,13 @@ class Resume extends StatelessWidget {
                 ],
                 links: [],
               ),
+              SizedBox(height: 24.0),
               Project(
                 name: "Silent auction app",
                 from: "May 2017",
                 to: "September 2018",
                 description:
-                "Silent Auction service. This client allows bidders who are invited to silent auctions to bid on items from their mobile device and manage bids.",
+                    "Silent Auction service. This client allows bidders who are invited to silent auctions to bid on items from their mobile device and manage bids.",
                 role: "Android Developer",
                 technologies: [
                   "Java",
@@ -283,7 +325,7 @@ class Section extends StatelessWidget {
             title,
             style: TextStyle(
               color: const Color(0xFF00796b),
-              fontSize: 18,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -323,10 +365,13 @@ class TimePeriod extends StatelessWidget {
           ),
         ),
         SizedBox(height: 4.0),
-        Text(
-          subtitle,
-          style: TextStyle(
-            fontSize: 18,
+        Visibility(
+          visible: subtitle.isNotEmpty,
+          child: Text(
+            subtitle,
+            style: TextStyle(
+              fontSize: 18,
+            ),
           ),
         ),
         SizedBox(height: 4.0),
@@ -380,10 +425,25 @@ class SkillsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Wrap(
       children: <Widget>[
-        for (final skill in skills) Text("$skill"),
+        for (final skill in skills)
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+            child: Container(
+              decoration: BoxDecoration(
+                color: const Color(0xFF00695C).withOpacity(0.80),
+                borderRadius: BorderRadius.circular(6.0),
+              ),
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "$skill",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
       ],
     );
   }
@@ -403,8 +463,21 @@ class DutiesContainer extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        Text("Duties: ", style: Theme.of(context).textTheme.subtitle),
-        for (final duty in duties) Text("  •  $duty"),
+        Text(
+          "Duties: ",
+          style: TextStyle(
+            color: const Color(0xFF00796b),
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        for (final duty in duties)
+          Text(
+            "  •  $duty",
+            style: TextStyle(
+              fontSize: 16,
+            ),
+          ),
       ],
     );
   }
@@ -485,7 +558,7 @@ class Project extends StatelessWidget {
     Widget _textRow(String name, String text) {
       return RichText(
         text: TextSpan(
-          style: DefaultTextStyle.of(context).style,
+          style: DefaultTextStyle.of(context).style.copyWith(fontSize: 16.0),
           children: [
             TextSpan(
               text: "${name}: ",
