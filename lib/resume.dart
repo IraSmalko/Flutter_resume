@@ -1,5 +1,6 @@
 import 'dart:html';
 
+import 'package:clipboard_manager/clipboard_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:resume/util.dart';
 
@@ -136,11 +137,11 @@ class Resume extends StatelessWidget {
             children: [
               TimePeriod(
                 title: "Android development",
+                url: "http://geekhub.ck.ua",
                 subtitle: "GeekHub",
                 from: "October 2016",
                 to: "April 2017",
               ),
-              IconButton(onPressed: () {}, icon: Icon(Icons.link))
             ],
           ),
         ],
@@ -340,12 +341,14 @@ class Section extends StatelessWidget {
 class TimePeriod extends StatelessWidget {
   final String title;
   final String subtitle;
+  final String url;
   final String from;
   final String to;
 
   const TimePeriod({
     Key key,
     @required this.title,
+    this.url,
     @required this.subtitle,
     @required this.from,
     @required this.to,
@@ -367,11 +370,21 @@ class TimePeriod extends StatelessWidget {
         SizedBox(height: 4.0),
         Visibility(
           visible: subtitle.isNotEmpty,
-          child: Text(
-            subtitle,
-            style: TextStyle(
-              fontSize: 18,
-            ),
+          child: Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Text(
+                subtitle,
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+              ),
+              SizedBox(width: 4.0),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 4),
+                child: Link(url != null ? url : ""),
+              ),
+            ],
           ),
         ),
         SizedBox(height: 4.0),
