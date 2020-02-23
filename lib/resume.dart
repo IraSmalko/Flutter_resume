@@ -272,7 +272,7 @@ class Header extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text("Iryna Smalko",
-                      style: textTheme.headline4.copyWith(color: Colors.black)),
+                      style: textTheme.headline.copyWith(color: Colors.black)),
                   SizedBox(height: 4.0),
                   Text(
                     "Flutter developer",
