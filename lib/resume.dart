@@ -1,19 +1,30 @@
 import 'dart:html';
-
-import 'package:clipboard_manager/clipboard_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:resume/util.dart';
 
 import 'custom_icons.dart';
 
-class Resume extends StatelessWidget {
+class Resume extends StatefulWidget {
   const Resume({Key key}) : super(key: key);
+
+  @override
+  _ResumeState createState() => _ResumeState();
+}
+
+class _ResumeState extends State<Resume> {
+  double _screenWidth;
+  bool _isMobile = false;
 
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData = MediaQuery.of(context);
     double screenHeight = queryData.size.height;
     double screenWidth = queryData.size.width;
+    _isMobile = screenWidth < 800;
+
+    if (_screenWidth != null && screenWidth < _screenWidth)
+      screenWidth = _screenWidth;
+    _screenWidth = screenWidth;
 
     return Scaffold(
       backgroundColor: Colors.black54,
@@ -30,12 +41,12 @@ class Resume extends StatelessWidget {
               width: screenWidth / 2,
               child: Column(
                 children: <Widget>[
-                  Header(),
+                  Header(_isMobile),
                   Container(
                     color: Colors.black12,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
+                    child: ContactsContainer(
+                      _isMobile,
+                      contacts: <Widget>[
                         SizedBox(),
                         Contact(
                             title: "smalko.irina.s@gmail.com",
@@ -53,13 +64,11 @@ class Resume extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          _firstColumn(screenWidth / 2),
-                          _secondColumn(screenWidth / 2)
-                        ]),
+                    child: ColumnContainer(
+                      _isMobile,
+                      firstColumn: _firstColumn,
+                      secondColumn: _secondColumn,
+                    ),
                   ),
                   SizedBox(height: 42.0),
                 ],
@@ -71,196 +80,195 @@ class Resume extends StatelessWidget {
     );
   }
 
-  Widget _firstColumn(double width) {
-    return Expanded(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Section(
-            title: "Professional Skills",
-            children: [
-              SkillsContainer(
-                skills: [
-                  "Kotlin",
-                  "Java",
-                  "Dart",
-                  "Android SDK",
-                  "OOP",
-                  "Databinding",
-                  "OkHttp",
-                  "Retroit",
-                  "Realm",
-                  "Architecture components",
-                  "RxJava2",
-                  "Branch",
-                  "Firebase",
-                  "Google pay",
-                  "Crashlytics",
-                  "Git",
-                  "Internationalization",
-                  "IOS app distribution",
-                  "Git flow",
-                  "Testflight",
-                  "Jira",
-                  "Figma",
-                  "Provider",
-                ],
-              ),
-            ],
-          ),
-          const SizedBox(height: 24.0),
-          DutiesContainer(
-            duties: [
-              "Implementation of new features",
-              "Prototyping, design and technical implementation discussions",
-              "Code review",
-              "Improving the design of existing code",
-              "Supporting the QA team during the testing phase",
-              "Contribution of mobile apps",
-            ],
-          ),
-          Section(
-            title: "Education",
-            children: [
-              TimePeriod(
-                title: "Bachelor's in Accounting and audit",
-                subtitle:
-                    "The Kremenchuk Mykhailo Ostrohradskyi National University",
-                from: "September 2012",
-                to: "June 2016",
-              ),
-            ],
-          ),
-          Section(
-            title: "Courses",
-            children: [
-              TimePeriod(
-                title: "Android development",
-                url: "http://geekhub.ck.ua",
-                subtitle: "GeekHub",
-                from: "October 2016",
-                to: "April 2017",
-              ),
+  List<Widget> get _firstColumn {
+    return [
+      Section(
+        title: "Professional Skills",
+        children: [
+          SkillsContainer(
+            skills: [
+              "Kotlin",
+              "Java",
+              "Dart",
+              "Android SDK",
+              "OOP",
+              "Databinding",
+              "OkHttp",
+              "Retroit",
+              "Realm",
+              "Architecture components",
+              "RxJava2",
+              "Branch",
+              "Firebase",
+              "Google pay",
+              "Crashlytics",
+              "Git",
+              "Internationalization",
+              "IOS app distribution",
+              "Git flow",
+              "Testflight",
+              "Jira",
+              "Figma",
+              "Provider",
             ],
           ),
         ],
       ),
-    );
+      const SizedBox(height: 24.0),
+      DutiesContainer(
+        duties: [
+          "Implementation of new features",
+          "Prototyping, design and technical implementation discussions",
+          "Code review",
+          "Improving the design of existing code",
+          "Supporting the QA team during the testing phase",
+          "Contribution of mobile apps",
+        ],
+      ),
+      Section(
+        title: "Education",
+        children: [
+          TimePeriod(
+            title: "Bachelor's in Accounting and audit",
+            subtitle:
+                "The Kremenchuk Mykhailo Ostrohradskyi National University",
+            from: "September 2012",
+            to: "June 2016",
+          ),
+        ],
+      ),
+      Section(
+        title: "Courses",
+        children: [
+          TimePeriod(
+            title: "Android development",
+            url: "http://geekhub.ck.ua",
+            subtitle: "GeekHub",
+            from: "October 2016",
+            to: "April 2017",
+          ),
+        ],
+      ),
+    ];
   }
 
-  Widget _secondColumn(double width) {
-    return Expanded(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Section(
-            title: "WORK EXPERIENCE",
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  TimePeriod(
-                    title: "Flutter developer",
-                    subtitle: "YouDigital, Kyiv, Ukraine",
-                    from: "August 2019",
-                    to: "Present",
-                  ),
-                  const SizedBox(height: 24.0),
-                  TimePeriod(
-                    title: "Android Developer",
-                    subtitle: "Master of Code Global, Cherkasy, Ukraine",
-                    from: "May 2017",
-                    to: "April 2019",
-                  ),
-                ],
-              ),
-            ],
-          ),
-          Section(
-            title: "Main projects",
-            children: [
-              Project(
-                name: "Apps for making deposits and loans",
+  List<Widget> get _secondColumn {
+    return [
+      Section(
+        title: "WORK EXPERIENCE",
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              TimePeriod(
+                title: "Flutter developer",
+                subtitle: "YouDigital, Kyiv, Ukraine",
                 from: "August 2019",
                 to: "Present",
-                description:
-                    "The mobile applications for comfortable and quick admittance to the client’s personal deposits and Loans cryptocurrency accounts",
-                role: "Flutter developer",
-                technologies: [
-                  "Dart",
-                  "Internationalization",
-                  "Provider",
-                ],
-                links: [],
               ),
-              SizedBox(height: 24.0),
-              Project(
-                name: "Domestic services app",
-                from: "September 2017",
-                to: "April 2019",
-                description:
-                    "App for matching clients with proven technicians to solve common household problems oriented for Arabian countries",
-                role: "Android Developer",
-                technologies: [
-                  "Kotlin",
-                  "Android framework",
-                  "Architecture components",
-                  "DataBinding",
-                  "RxJava2",
-                  "ObjectBox",
-                  "Retrofit",
-                  "Firebase",
-                ],
-                links: [],
-              ),
-              SizedBox(height: 24.0),
-              Project(
-                name: "Silent auction app",
+              const SizedBox(height: 24.0),
+              TimePeriod(
+                title: "Android Developer",
+                subtitle: "Master of Code Global, Cherkasy, Ukraine",
                 from: "May 2017",
-                to: "September 2018",
-                description:
-                    "Silent Auction service. This client allows bidders who are invited to silent auctions to bid on items from their mobile device and manage bids.",
-                role: "Android Developer",
-                technologies: [
-                  "Java",
-                  "Android framework",
-                  "Realm",
-                  "Socket",
-                  "Glide",
-                  "Branch",
-                  "OkHttp",
-                  "Google Maps",
-                  "Firebase",
-                ],
-                links: [],
+                to: "April 2019",
               ),
             ],
           ),
         ],
       ),
-    );
+      Section(
+        title: "Main projects",
+        children: [
+          Project(
+            name: "Apps for making deposits and loans",
+            from: "August 2019",
+            to: "Present",
+            description:
+                "The mobile applications for comfortable and quick admittance to the client’s personal deposits and Loans cryptocurrency accounts",
+            role: "Flutter developer",
+            technologies: [
+              "Dart",
+              "Internationalization",
+              "Provider",
+            ],
+            links: [],
+          ),
+          SizedBox(height: 24.0),
+          Project(
+            name: "Domestic services app",
+            from: "September 2017",
+            to: "April 2019",
+            description:
+                "App for matching clients with proven technicians to solve common household problems oriented for Arabian countries",
+            role: "Android Developer",
+            technologies: [
+              "Kotlin",
+              "Android framework",
+              "Architecture components",
+              "DataBinding",
+              "RxJava2",
+              "ObjectBox",
+              "Retrofit",
+              "Firebase",
+            ],
+            links: [],
+          ),
+          SizedBox(height: 24.0),
+          Project(
+            name: "Silent auction app",
+            from: "May 2017",
+            to: "September 2018",
+            description:
+                "Silent Auction service. This client allows bidders who are invited to silent auctions to bid on items from their mobile device and manage bids.",
+            role: "Android Developer",
+            technologies: [
+              "Java",
+              "Android framework",
+              "Realm",
+              "Socket",
+              "Glide",
+              "Branch",
+              "OkHttp",
+              "Google Maps",
+              "Firebase",
+            ],
+            links: [],
+          ),
+        ],
+      ),
+    ];
   }
+
+  @override
+  State<StatefulWidget> createState() {}
 }
 
 class Header extends StatelessWidget {
-  const Header({
+  final bool isMobile;
+
+  const Header(
+    this.isMobile, {
     Key key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    double basePadding = isMobile ? 12 : 32;
+
     final textTheme = Theme.of(context).textTheme;
     return Padding(
-      padding: const EdgeInsets.only(
-          left: 32.0, right: 32.0, top: 32.0, bottom: 24.0),
+      padding: EdgeInsets.only(
+          left: basePadding,
+          right: basePadding,
+          top: basePadding,
+          bottom: 24.0),
       child: Row(
         children: <Widget>[
           ClipOval(
             child: SizedBox(
-              width: 120.0,
-              height: 120.0,
+              width: isMobile ? 100 : 120,
+              height: isMobile ? 100 : 120,
               child: Image.asset("assets/image.jpg"),
             ),
           ),
@@ -391,6 +399,72 @@ class TimePeriod extends StatelessWidget {
         Text("$from – $to", style: textTheme.caption),
       ],
     );
+  }
+}
+
+class ColumnContainer extends StatelessWidget {
+  final bool isMobile;
+  final List<Widget> firstColumn;
+  final List<Widget> secondColumn;
+
+  const ColumnContainer(
+    this.isMobile, {
+    Key key,
+    @required this.firstColumn,
+    @required this.secondColumn,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return isMobile
+        ? Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [...firstColumn, ...secondColumn],
+          )
+        : Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: firstColumn,
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: secondColumn,
+                  ),
+                ),
+              ]);
+  }
+}
+
+class ContactsContainer extends StatelessWidget {
+  final List<Widget> contacts;
+  final bool isMobile;
+
+  const ContactsContainer(
+    this.isMobile, {
+    Key key,
+    this.contacts,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return isMobile
+        ? Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+            child: Column(children: contacts),
+          )
+        : Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: contacts,
+          );
   }
 }
 
