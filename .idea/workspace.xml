@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df571226-b7fc-4b1b-8dbc-a76ecc9cac80" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Flutter_resume.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Flutter_resume.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="f6871efc-263d-410e-8e37-cf39ed7c1d15" name="Default Changelist" comment="mobile">
       <change beforePath="$PROJECT_DIR$/lib/resume.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/resume.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,25 +67,34 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="304" y="158" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582470386811">
-      <screen x="0" y="23" width="1680" height="947" />
+    <state x="304" y="150" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582545804523">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state x="304" y="150" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1582545804523" />
     <state x="304" y="158" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.947@0.23.1680.947" timestamp="1582470386811" />
-    <state width="1586" height="319" key="GridCell.Tab.0.bottom" timestamp="1582483400866">
-      <screen x="0" y="23" width="1680" height="947" />
+    <state x="423" y="127" key="CommitChangelistDialog2" timestamp="1582545833455">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state x="423" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1582545833455" />
+    <state width="1638" height="372" key="GridCell.Tab.0.bottom" timestamp="1582545844160">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="372" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1582545844160" />
     <state width="1586" height="319" key="GridCell.Tab.0.bottom/0.23.1680.947@0.23.1680.947" timestamp="1582483400866" />
-    <state width="1586" height="319" key="GridCell.Tab.0.center" timestamp="1582483400866">
-      <screen x="0" y="23" width="1680" height="947" />
+    <state width="1638" height="372" key="GridCell.Tab.0.center" timestamp="1582545844157">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state width="1638" height="372" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1582545844157" />
     <state width="1586" height="319" key="GridCell.Tab.0.center/0.23.1680.947@0.23.1680.947" timestamp="1582483400866" />
-    <state width="1586" height="319" key="GridCell.Tab.0.left" timestamp="1582483400865">
-      <screen x="0" y="23" width="1680" height="947" />
+    <state width="1638" height="372" key="GridCell.Tab.0.left" timestamp="1582545844156">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state width="1638" height="372" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1582545844156" />
     <state width="1586" height="319" key="GridCell.Tab.0.left/0.23.1680.947@0.23.1680.947" timestamp="1582483400865" />
-    <state width="1586" height="319" key="GridCell.Tab.0.right" timestamp="1582483400866">
-      <screen x="0" y="23" width="1680" height="947" />
+    <state width="1638" height="372" key="GridCell.Tab.0.right" timestamp="1582545844159">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state width="1638" height="372" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1582545844159" />
     <state width="1586" height="319" key="GridCell.Tab.0.right/0.23.1680.947@0.23.1680.947" timestamp="1582483400866" />
     <state x="586" y="216" key="git4idea.branch.GitSmartOperationDialog" timestamp="1582470173962">
       <screen x="0" y="23" width="1680" height="947" />

@@ -29,13 +29,13 @@ class _ResumeState extends State<Resume> {
     return Scaffold(
       backgroundColor: Colors.black54,
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(18.0),
+        padding: EdgeInsets.all(_isMobile ? 2 : 18),
         child: Center(
           child: Card(
             elevation: 10,
-            margin: const EdgeInsets.only(top: 24.0),
+            margin: EdgeInsets.only(top: _isMobile ? 10 : 24),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(2.0),
+              borderRadius: BorderRadius.circular(2),
             ),
             child: Container(
               width: screenWidth / 2,
