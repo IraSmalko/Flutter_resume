@@ -20,7 +20,7 @@ class _ResumeState extends State<Resume> {
     MediaQueryData queryData = MediaQuery.of(context);
     double screenHeight = queryData.size.height;
     double screenWidth = queryData.size.width;
-    _isMobile = screenWidth < 800;
+    _isMobile = screenWidth <= 800;
 
     if (_screenWidth != null && screenWidth < _screenWidth)
       screenWidth = _screenWidth;
@@ -38,7 +38,7 @@ class _ResumeState extends State<Resume> {
               borderRadius: BorderRadius.circular(2),
             ),
             child: Container(
-              width: screenWidth / 2,
+              width: _isMobile ? screenWidth : screenWidth / 2,
               child: Column(
                 children: <Widget>[
                   Header(_isMobile),
