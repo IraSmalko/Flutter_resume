@@ -4,6 +4,7 @@
     <list default="true" id="e5762a67-8e6c-4385-900f-5d45ad19eb72" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/Flutter_resume.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Flutter_resume.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/resume.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/resume.dart" afterDir="false" />
     </list>
@@ -24,18 +25,23 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="1" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="settings.editor.selected.configurable" value="dart.settings" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/SDK/flutter" />
+    <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="SvnConfiguration">
@@ -72,37 +78,33 @@
     <option name="LAST_COMMIT_MESSAGE" value="mobile padding" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582546755889">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="509" y="274" key="FileChooserDialogImpl" timestamp="1594145899497">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1582546755889" />
-    <state x="423" y="127" key="CommitChangelistDialog2" timestamp="1582546513046">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="509" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1594145899497" />
+    <state width="1387" height="277" key="GridCell.Tab.0.bottom" timestamp="1594145952610">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="423" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1582546513046" />
-    <state width="1638" height="295" key="GridCell.Tab.0.bottom" timestamp="1582551983122">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="1387" height="277" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594145952610" />
+    <state width="1387" height="277" key="GridCell.Tab.0.center" timestamp="1594145952610">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1582551983122" />
-    <state width="1638" height="295" key="GridCell.Tab.0.center" timestamp="1582551983120">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="1387" height="277" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594145952610" />
+    <state width="1387" height="277" key="GridCell.Tab.0.left" timestamp="1594145952608">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1582551983120" />
-    <state width="1638" height="295" key="GridCell.Tab.0.left" timestamp="1582551983120">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="1387" height="277" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594145952608" />
+    <state width="1387" height="277" key="GridCell.Tab.0.right" timestamp="1594145952610">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1582551983120" />
-    <state width="1638" height="295" key="GridCell.Tab.0.right" timestamp="1582551983121">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="1387" height="277" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594145952610" />
+    <state x="230" y="164" key="SettingsEditor" timestamp="1594145902793">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1582551983121" />
-    <state x="341" y="164" key="SettingsEditor" timestamp="1582551614447">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="230" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1594145902793" />
+    <state x="392" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1594148216147">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="341" y="164" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1582551614447" />
-    <state x="440" y="253" key="Vcs.Push.Dialog.v2" timestamp="1582546515740">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="440" y="253" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1582546515740" />
+    <state x="392" y="229" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594148216147" />
   </component>
 </project>

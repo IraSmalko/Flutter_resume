@@ -1,4 +1,5 @@
 import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:resume/util.dart';
 
@@ -83,13 +84,46 @@ class _ResumeState extends State<Resume> {
   List<Widget> get _firstColumn {
     return [
       Section(
+        title: "WORK EXPERIENCE",
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              TimePeriod(
+                title: "Flutter developer",
+                subtitle: "UAPAY, Kyiv, Ukraine",
+                from: "April 2020",
+                to: "Present",
+              ),
+              const SizedBox(height: 24.0),
+              TimePeriod(
+                title: "Flutter developer",
+                subtitle: "YouDigital, Kyiv, Ukraine",
+                from: "August 2019",
+                to: "April 2020",
+              ),
+              const SizedBox(height: 24.0),
+              TimePeriod(
+                title: "Android Developer",
+                subtitle: "Master of Code Global, Cherkasy, Ukraine",
+                from: "May 2017",
+                to: "April 2019",
+              ),
+            ],
+          ),
+        ],
+      ),
+      Section(
         title: "Professional Skills",
         children: [
           SkillsContainer(
             skills: [
+              "Flutter",
               "Kotlin",
               "Java",
               "Dart",
+              "RxDart",
+              "Flutter_bloc",
               "Android SDK",
               "OOP",
               "Databinding",
@@ -126,18 +160,6 @@ class _ResumeState extends State<Resume> {
         ],
       ),
       Section(
-        title: "Education",
-        children: [
-          TimePeriod(
-            title: "Bachelor's in Accounting and audit",
-            subtitle:
-                "The Kremenchuk Mykhailo Ostrohradskyi National University",
-            from: "September 2012",
-            to: "June 2016",
-          ),
-        ],
-      ),
-      Section(
         title: "Courses",
         children: [
           TimePeriod(
@@ -155,35 +177,26 @@ class _ResumeState extends State<Resume> {
   List<Widget> get _secondColumn {
     return [
       Section(
-        title: "WORK EXPERIENCE",
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              TimePeriod(
-                title: "Flutter developer",
-                subtitle: "YouDigital, Kyiv, Ukraine",
-                from: "August 2019",
-                to: "Present",
-              ),
-              const SizedBox(height: 24.0),
-              TimePeriod(
-                title: "Android Developer",
-                subtitle: "Master of Code Global, Cherkasy, Ukraine",
-                from: "May 2017",
-                to: "April 2019",
-              ),
-            ],
-          ),
-        ],
-      ),
-      Section(
         title: "Main projects",
         children: [
           Project(
-            name: "Apps for making deposits and loans",
-            from: "August 2019",
+            name: "Financial application",
+            from: "April 2020",
             to: "Present",
+            role: "Flutter developer",
+            technologies: [
+              "Dart",
+              "Firebase",
+              "RxDart",
+              "flutter_bloc",
+            ],
+            links: [],
+          ),
+          SizedBox(height: 24.0),
+          Project(
+            name: "App for making deposits and loans",
+            from: "August 2019",
+            to: "April 202",
             description:
                 "The mobile applications for comfortable and quick admittance to the client’s personal deposits and Loans cryptocurrency accounts",
             role: "Flutter developer",
@@ -196,7 +209,7 @@ class _ResumeState extends State<Resume> {
           ),
           SizedBox(height: 24.0),
           Project(
-            name: "Domestic services app",
+            name: "Domestic services apps",
             from: "September 2017",
             to: "April 2019",
             description:
@@ -234,6 +247,18 @@ class _ResumeState extends State<Resume> {
               "Firebase",
             ],
             links: [],
+          ),
+          Section(
+            title: "Education",
+            children: [
+              TimePeriod(
+                title: "Bachelor's in Accounting and audit",
+                subtitle:
+                    "The Kremenchuk Mykhailo Ostrohradskyi National University",
+                from: "September 2012",
+                to: "June 2016",
+              ),
+            ],
           ),
         ],
       ),
@@ -375,7 +400,7 @@ class TimePeriod extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: 4.0),
+        if (subtitle.isNotEmpty) SizedBox(height: 8.0),
         Visibility(
           visible: subtitle.isNotEmpty,
           child: Wrap(
@@ -387,15 +412,16 @@ class TimePeriod extends StatelessWidget {
                   fontSize: 18,
                 ),
               ),
-              SizedBox(width: 4.0),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 4),
-                child: Link(url != null ? url : ""),
-              ),
+              if (url?.isNotEmpty == true) SizedBox(width: 4.0),
+              if (url?.isNotEmpty == true)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 4),
+                  child: Link(url != null ? url : ""),
+                ),
             ],
           ),
         ),
-        SizedBox(height: 4.0),
+        SizedBox(height: 8.0),
         Text("$from – $to", style: textTheme.caption),
       ],
     );
@@ -558,6 +584,7 @@ class DutiesContainer extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+        SizedBox(height: 8.0),
         for (final duty in duties)
           Text(
             "  •  $duty",
@@ -608,10 +635,10 @@ class Project extends StatelessWidget {
 
   const Project({
     Key key,
+    this.description,
     @required this.name,
     @required this.from,
     @required this.to,
-    @required this.description,
     @required this.role,
     @required this.technologies,
     @required this.links,
@@ -667,8 +694,11 @@ class Project extends StatelessWidget {
           to: to,
         ),
         SizedBox(height: 8.0),
-        _textRow("Description", description),
+        if (description?.isNotEmpty == true)
+          _textRow("Description", description),
+        if (description?.isNotEmpty == true) SizedBox(height: 8.0),
         _textRow("Role", role),
+        SizedBox(height: 8.0),
         _textRow("Technologies", technologies.join(", ")),
         _row("Links", links),
       ],
