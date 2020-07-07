@@ -1,1 +1,0 @@
-{"isEntrypoint":true,"deps":["clipboard_manager|lib/clipboard_manager.dart","flutter|lib/material.dart","resume|lib/util.dart","resume|lib/custom_icons.dart"],"parts":[],"conditionalDeps":[],"sdkDeps":["html"],"hasMain":false}
