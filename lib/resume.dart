@@ -318,7 +318,7 @@ class Header extends StatelessWidget {
                   SizedBox(
                     width: constraints.maxWidth,
                     child: Text(
-                      "Dedicated Android developer with two years of experience in mobile app development. Strong creative and analytical skills. Team player with an eye for detail.",
+                      "Dedicated Android developer with three years of experience in mobile app development. Strong creative and analytical skills. Team player with an eye for detail.",
                     ),
                   ),
                 ],
